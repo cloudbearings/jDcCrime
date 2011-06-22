@@ -43,31 +43,36 @@ public class Crime {
     private String reportDateTime;
     private String offense;
     private String method;
-
     private String district;
+
+    private CrimeLingoTranslator crimeLingoTranslator;
+
+    public Crime() {
+        crimeLingoTranslator = new CrimeLingoTranslator();
+    }
 
     public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict( String district ) {
         this.district = district;
     }
 
     public String getOffense() {
 
-        return offense;
+        return crimeLingoTranslator.translateTerm( offense);
     }
 
-    public void setOffense(String offense) {
+    public void setOffense( String offense ) {
         this.offense = offense;
     }
 
     public String getMethod() {
-        return method;
+        return crimeLingoTranslator.translateTerm( method );
     }
 
-    public void setMethod(String method) {
+    public void setMethod( String method ) {
         this.method = method;
     }
 
@@ -76,7 +81,7 @@ public class Crime {
         return reportDateTime;
     }
 
-    public void setReportDateTime(String reportDateTime) {
+    public void setReportDateTime( String reportDateTime ) {
         this.reportDateTime = reportDateTime;
     }
 }

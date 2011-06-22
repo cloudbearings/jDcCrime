@@ -56,11 +56,11 @@ import org.xml.sax.SAXException;
 public class RssFeedWrapper {
     private URL url;
 
-    public RssFeedWrapper(String urlName){
+    public RssFeedWrapper( String urlName ){
         try {
             url = new URL(urlName);
         }
-        catch (MalformedURLException e) {
+        catch ( MalformedURLException e ) {
             url = null;
         }
     }
@@ -73,7 +73,7 @@ public class RssFeedWrapper {
         this.url = url;
     }
 
-   protected String getCharacterDataFromElement(Element e) {
+   protected String getCharacterDataFromElement( Element e ) {
 
 	    Node child = e.getFirstChild();
 
@@ -85,22 +85,18 @@ public class RssFeedWrapper {
 		return "";
     }
 
-    /*protected String getElementValue(Element parent,String label) {
-        return getCharacterDataFromElement((Element)parent.getElementsByTagName(label).item(0));
-	} */
-
     public Document parse(){
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            return builder.parse(url.openStream());
+            return builder.parse( url.openStream() );
         }
-        catch (SAXException e) {
+        catch ( SAXException e ) {
             return null;
         }
-        catch (ParserConfigurationException e) {
+        catch ( ParserConfigurationException e ) {
             return null;
         }
-        catch (IOException e) {
+        catch ( IOException e ) {
             return null;
         }
 

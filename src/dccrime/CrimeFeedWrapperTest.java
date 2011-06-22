@@ -49,12 +49,12 @@ public class CrimeFeedWrapperTest{
         crimeFeedWrapper = new CrimeFeedWrapper();
         crimeList = crimeFeedWrapper.getCrimeList();
 
-        for (int i=0; i< crimeList.getCrimes().size(); i++) {
-            Crime crime = crimeList.getCrimes().get(i);
-            System.out.println("Offense: " + crime.getOffense());
-            System.out.println("Method: " + crime.getMethod());
-            System.out.println("Report Date/Time: " + crime.getReportDateTime());
-            System.out.println("District: " + crime.getDistrict());
+        for ( int i=0; i< crimeList.getCrimes().size(); i++ ) {
+            Crime crime = crimeList.getCrimes().get( i );
+            System.out.println( "Offense: " + crime.getOffense() );
+            System.out.println( "Method: " + crime.getMethod() );
+            System.out.println( "Report Date/Time: " + crime.getReportDateTime() );
+            System.out.println( "District: " + crime.getDistrict() );
             System.out.println();
         }
     }
