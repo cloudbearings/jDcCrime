@@ -47,41 +47,41 @@ import org.w3c.dom.Element;
 public class CrimeFeedWrapper extends RssFeedWrapper {
     private Document parsedDocument;
 
-    public CrimeFeedWrapper() {
-        super("http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml");
+    public CrimeFeedWrapper( String url ) {
+        super( url );
     }
 
     public NodeList getCrimeNodeList() {
         parsedDocument = super.parse();
-        return parsedDocument.getElementsByTagName("dcst:ReportedCrime");
+        return parsedDocument.getElementsByTagName( "dcst:ReportedCrime" );
     }
 
     public Crime getCrimeFromElement(Element crimeElement) {
         Crime c = new Crime();
 
         loadOffense( c, crimeElement.getElementsByTagName( "dcst:offense" ) );
-        loadMethod(c, crimeElement.getElementsByTagName("dcst:method"));
-        loadDistrict(c, crimeElement.getElementsByTagName("dcst:district"));
-        loadReportDateTime(c, crimeElement.getElementsByTagName("dcst:reportdatetime"));
+        loadMethod( c, crimeElement.getElementsByTagName( "dcst:method" ) );
+        loadDistrict( c, crimeElement.getElementsByTagName( "dcst:district" ) );
+        loadReportDateTime( c, crimeElement.getElementsByTagName( "dcst:reportdatetime" ) );
 
         return c;
     }
 
-    private void loadReportDateTime(Crime crime, NodeList nodeList) {
-        for (int i=0; i<nodeList.getLength(); i++){
-            crime.setReportDateTime(getCharacterDataFromElement((Element) nodeList.item(i)));
+    private void loadReportDateTime( Crime crime, NodeList nodeList ) {
+        for ( int i=0; i<nodeList.getLength(); i++ ){
+            crime.setReportDateTime( getCharacterDataFromElement((Element) nodeList.item( i ) ) );
         }
     }
 
     private void loadMethod(Crime crime, NodeList nodeList) {
-        for (int i=0; i<nodeList.getLength(); i++){
-            crime.setMethod(getCharacterDataFromElement((Element) nodeList.item(i)));
+        for ( int i=0; i<nodeList.getLength(); i++ ){
+            crime.setMethod(getCharacterDataFromElement((Element) nodeList.item ( i ) ) );
         }
     }
 
     private void loadDistrict(Crime crime, NodeList nodeList) {
-            for (int i=0; i<nodeList.getLength(); i++){
-                crime.setDistrict(getCharacterDataFromElement((Element) nodeList.item(i)));
+            for ( int i=0; i<nodeList.getLength(); i++ ){
+                crime.setDistrict( getCharacterDataFromElement( (Element) nodeList.item( i ) ) );
             }
         }
 
@@ -96,7 +96,7 @@ public class CrimeFeedWrapper extends RssFeedWrapper {
         NodeList nodes = getCrimeNodeList();
         for(int i=0;i<nodes.getLength();i++)
         {
-            crimeList.add(getCrimeFromElement( (Element)nodes.item( i ) ) );
+            crimeList.add( getCrimeFromElement( (Element)nodes.item( i ) ) );
         }
         return crimeList;
     }

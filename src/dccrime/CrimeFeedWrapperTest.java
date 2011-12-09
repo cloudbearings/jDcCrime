@@ -46,7 +46,7 @@ public class CrimeFeedWrapperTest{
     private static CrimeList crimeList;
 
     public static void main( String args[] ) {
-        crimeFeedWrapper = new CrimeFeedWrapper();
+        crimeFeedWrapper = new CrimeFeedWrapper( "http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml" );
         crimeList = crimeFeedWrapper.getCrimeList();
 
         for ( int i=0; i< crimeList.getCrimes().size(); i++ ) {
