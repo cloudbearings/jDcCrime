@@ -58,7 +58,7 @@ public class CrimeList {
             this.crimes = crimes;
         }
 
-    public void add(Crime crime){
+    public void add(Crime crime) {
         crimes.add(crime);
     }
 }

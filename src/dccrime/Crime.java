@@ -60,7 +60,6 @@ public class Crime {
     }
 
     public String getOffense() {
-
         return crimeLingoTranslator.translateTerm( offense);
     }
 

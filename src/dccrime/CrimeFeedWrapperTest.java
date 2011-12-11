@@ -49,8 +49,7 @@ public class CrimeFeedWrapperTest{
         crimeFeedWrapper = new CrimeFeedWrapper( "http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml" );
         crimeList = crimeFeedWrapper.getCrimeList();
 
-        for ( int i=0; i< crimeList.getCrimes().size(); i++ ) {
-            Crime crime = crimeList.getCrimes().get( i );
+	for ( Crime crime: crimeList.getCrimes() ) {
             System.out.println( "Offense: " + crime.getOffense() );
             System.out.println( "Method: " + crime.getMethod() );
             System.out.println( "Report Date/Time: " + crime.getReportDateTime() );

@@ -85,6 +85,11 @@ public class RssFeedWrapper {
 		return "";
     }
 
+    protected void getElementFromNodeList( NodeList nodeList, int itemIndex ) {
+    	return (Element) nodeList.item( itemIndex );
+    }
+
+
     public Document parse(){
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

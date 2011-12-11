@@ -58,7 +58,6 @@ public class CrimeFeedWrapper extends RssFeedWrapper {
 
     public Crime getCrimeFromElement(Element crimeElement) {
         Crime c = new Crime();
-
         loadOffense( c, crimeElement.getElementsByTagName( "dcst:offense" ) );
         loadMethod( c, crimeElement.getElementsByTagName( "dcst:method" ) );
         loadDistrict( c, crimeElement.getElementsByTagName( "dcst:district" ) );
@@ -69,34 +68,34 @@ public class CrimeFeedWrapper extends RssFeedWrapper {
 
     private void loadReportDateTime( Crime crime, NodeList nodeList ) {
         for ( int i=0; i<nodeList.getLength(); i++ ){
-            crime.setReportDateTime( getCharacterDataFromElement((Element) nodeList.item( i ) ) );
+            crime.setReportDateTime( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
         }
     }
 
     private void loadMethod(Crime crime, NodeList nodeList) {
         for ( int i=0; i<nodeList.getLength(); i++ ){
-            crime.setMethod(getCharacterDataFromElement((Element) nodeList.item ( i ) ) );
+            crime.setMethod( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
         }
     }
 
     private void loadDistrict(Crime crime, NodeList nodeList) {
             for ( int i=0; i<nodeList.getLength(); i++ ){
-                crime.setDistrict( getCharacterDataFromElement( (Element) nodeList.item( i ) ) );
+                crime.setDistrict( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
             }
         }
 
     public void loadOffense( Crime crime, NodeList nodeList ) {
         for (int i=0; i<nodeList.getLength(); i++){
-            crime.setOffense( getCharacterDataFromElement( (Element) nodeList.item( i ) ) );
+            crime.setOffense( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
         }
     }
 
     public CrimeList getCrimeList(){
         CrimeList crimeList = new CrimeList();
         NodeList nodes = getCrimeNodeList();
-        for(int i=0;i<nodes.getLength();i++)
-        {
-            crimeList.add( getCrimeFromElement( (Element)nodes.item( i ) ) );
+        
+	for ( int i=0;i<nodes.getLength();i++ ) {
+            crimeList.add( getCrimeFromElement( getElementFromNodeList( nodeList, i ) );
         }
         return crimeList;
     }
