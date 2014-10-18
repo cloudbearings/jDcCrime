@@ -72,13 +72,13 @@ public class CrimeFeedWrapper extends RssFeedWrapper {
         }
     }
 
-    private void loadMethod(Crime crime, NodeList nodeList) {
+    private void loadMethod( Crime crime, NodeList nodeList ) {
         for ( int i=0; i<nodeList.getLength(); i++ ){
             crime.setMethod( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
         }
     }
 
-    private void loadDistrict(Crime crime, NodeList nodeList) {
+    private void loadDistrict( Crime crime, NodeList nodeList) {
             for ( int i=0; i<nodeList.getLength(); i++ ){
                 crime.setDistrict( getCharacterDataFromElement( getElementFromNodeList( nodeList, i ) ) );
             }
@@ -95,7 +95,7 @@ public class CrimeFeedWrapper extends RssFeedWrapper {
         NodeList nodes = getCrimeNodeList();
         
 	for ( int i=0;i<nodes.getLength();i++ ) {
-            crimeList.add( getCrimeFromElement( getElementFromNodeList( nodeList, i ) );
+            crimeList.add( getCrimeFromElement( getElementFromNodeList( nodes, i ) ) );
         }
         return crimeList;
     }

@@ -47,10 +47,11 @@ public class CrimeLingoTranslator {
 
     public CrimeLingoTranslator() {
         translationMap = new HashMap<String, String>();
-        translationMap.put( "ADW", "ASSAULT WITH A DEADLY WEAPON" );
-        translationMap.put( "P/P", "ROBBERY PICKPOCKET" );
-        translationMap.put( "F&V", "ROBBERY FORCE & VIOLENCE" );
-        translationMap.put( "UNK", "UNKNOWN" );
+        translationMap.put( "ADW", "Assault with a Deadly Weapon" );
+        translationMap.put( "P/P", "Robbery Pickpocket" );
+        translationMap.put( "F&V", "Robbery Force & Violence" );
+        translationMap.put( "THEFT F/AUTO", "Theft of items from within a vehicle" );
+        translationMap.put( "UNK", "Unknown" );
     }
 
     public String translateTerm(String term) {

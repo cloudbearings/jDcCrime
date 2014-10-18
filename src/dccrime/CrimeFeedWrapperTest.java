@@ -39,14 +39,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-import java.util.ArrayList;
-
-public class CrimeFeedWrapperTest{
+public class CrimeFeedWrapperTest {
+    private static String DC_CRIME_URL = "http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml";
     private static CrimeFeedWrapper crimeFeedWrapper;
     private static CrimeList crimeList;
 
     public static void main( String args[] ) {
-        crimeFeedWrapper = new CrimeFeedWrapper( "http://data.octo.dc.gov/feeds/crime_incidents/crime_incidents_current.xml" );
+        crimeFeedWrapper = new CrimeFeedWrapper( DC_CRIME_URL );
         crimeList = crimeFeedWrapper.getCrimeList();
 
 	for ( Crime crime: crimeList.getCrimes() ) {
